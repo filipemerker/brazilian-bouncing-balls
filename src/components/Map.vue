@@ -3,8 +3,8 @@
     <div class="map-container" ref="map-container"></div>
     <bounds-generator
       :bounceCriteria="bounceCriteria"
-      :widgetHeight="widgetHeight"
-      :widgetWidth="widgetWidth"
+      :widgetHeight="width"
+      :widgetWidth="height"
       :mapPath="mapPath"
 
       v-on:boundsready="createMap"
@@ -20,7 +20,12 @@
 /* eslint-disable */
 import Sketch from 'sketch-js'
 import BoundsGenerator from '@/components/BoundsGenerator'
-import {mapPath, widgetSize, bounceCriteria} from '@/config'
+import {
+  particlesLimit,
+  bounceCriteria,
+  widgetSize,
+  mapPath,
+} from '@/config'
 
 export default {
   name: 'Map',
@@ -32,15 +37,34 @@ export default {
   },
   data() {
     return {
+      // States
       loading: true,
       generatingBounds: true,
 
-      bounds: [],
-
-      widgetHeight: widgetSize.height,
-      widgetWidth: widgetSize.width,
+      // Configs
+      width: widgetSize.height,
+      height: widgetSize.width,
+      particlesRadiusRange,
+      particlesLimit,
       bounceCriteria,
       mapPath,
+
+      // Defaults
+      particlesAmount: 0,
+      particles: [],
+      bounds: [],
+      filters: {
+        creatorId: '',
+        feelingId: '',
+        stateId: '',
+        startDate: '',
+        finishDate: ''
+      },
+      mouse: {
+        in: false,
+        x: 0,
+        y: 0
+      }
     }
   },
   methods: {
@@ -50,9 +74,6 @@ export default {
     }
   },
   mounted() {
-    this.$nextTick(() => {
-
-    })
 
   }
 }

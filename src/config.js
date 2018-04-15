@@ -6,8 +6,9 @@ const particlesJSON = {
 const particleCount        = 10;
 const bounceCriteria       = 200;
 const mapPath              = require('@/assets/svg/brasil-wat.svg');
-const widgetSize           = { width: 300, height: 300 };
+const widgetSize           = { width: 500, height: 500 };
 const particlesAlpha       = .8;
+const particlesLimit       = 150;
 const particlesRadiusRange = [7, 15];
 const particlesColorRange  = [
   {label: "Amor", color: {r:234, g: 107, b:135}},
@@ -27,6 +28,7 @@ export {
   particlesColorRange,
   bounceCriteria,
   particlesAlpha,
+  particlesLimit,
   particlesJSON,
   particleCount,
   widgetSize,
