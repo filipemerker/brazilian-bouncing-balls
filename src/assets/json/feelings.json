@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Alegria", 
+    "likes": 1
+  },
+  {
+    "name": "Tristeza", 
+    "likes": 2
+  },
+  {
+    "name": "Esperança", 
+    "likes": 3
+  },
+  {
+    "name": "Saudade", 
+    "likes": 4
+  },
+  {
+    "name": "Carinho", 
+    "likes": 5
+  },
+  {
+    "name": "Ternura", 
+    "likes": 6
+  }
+]

@@ -1,24 +1,18 @@
 <template>
-  <div>
-    <div class="map-container" ref="map-container"></div>
-    <bounds-generator v-on:boundsready="createMap" />
-    <div id="brazil">
-      <canvas ref="map" />
-    </div>
-  </div>
+  <div ref="generator" />
 </template>
 
 <script>
 /* eslint-disable */
-import Sketch from 'sketch-js'
-import BoundsGenerator from '@/components/BoundsGenerator'
+import canvg from 'canvg-browser';
+
 export default {
-  name: 'HelloWorld',
-  components: {
-    BoundsGenerator
-  },
+  name: 'BoundsGenerator',
   props: {
-    msg: String
+    mapPath: String,
+    bounceCriteria: Number,
+    widgetHeight: Number,
+    widgetWidth: Number
   },
   data() {
     return {
@@ -26,15 +20,12 @@ export default {
     }
   },
   methods: {
-    createMap: function(bounds) {
-      console.log(bounds);
-    }
+
   },
   mounted() {
     this.$nextTick(() => {
-
+      this.$emit('boundsready', {bounds: [1, 12, 14, 20]});
     })
-
   }
 }
 </script>
