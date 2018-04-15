@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div class="map-container" ref="map"></div>
+    <div v-bind:class="['map-container', loading ? 'loading' : '']" ref="map">
+      <transition name="fade" mode="out-in">
+        <spinner v-if="loading" />
+      </transition>
+    </div>
     <bounds-generator
       :bounceCriteria="bounceCriteria"
       :widgetHeight="width"
@@ -19,6 +23,7 @@ import Sketch from 'sketch-js'
 
 import BoundsGenerator from '@/components/BoundsGenerator'
 import Particle from '@/components/Particle'
+import Spinner from '@/components/Spinner'
 
 import {
   particlesRadiusRange,
@@ -36,7 +41,8 @@ import {
 export default {
   name: 'Map',
   components: {
-    BoundsGenerator
+    BoundsGenerator,
+    Spinner
   },
   props: {
     msg: String
@@ -79,6 +85,8 @@ export default {
       this.bounds = bounds;
 
       this.getHugs();
+
+      setTimeout(() => (this.loading = false), 1500);
     },
 
     getHugs() {
@@ -219,6 +227,14 @@ export default {
   margin: 0 auto;
   background: url('../assets/svg/brasil.svg') no-repeat center center;
   padding: 30px 10px 20px 10px;
+  position: relative;
+}
+.map-container .sketch{
+  opacity: 1;
+  transition: opacity .45s;
+}
+.map-container.loading .sketch{
+  opacity: 0;
 }
 h3 {
   margin: 40px 0 0;

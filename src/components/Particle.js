@@ -1,5 +1,4 @@
 import { particlesAlpha } from '@/config';
-import { getRandom } from '@/helpers/formatters';
 import colisionSystem from '@/helpers/colisionSystem';
 
 class Particle {
@@ -42,16 +41,12 @@ class Particle {
     this.state.isAnimating = toggle;
   }
 
-  strokeToggle(switcher) {
+  strokeToggle() {
     if (this.state.stroke >= 0.2 && this.state.stroke <= 1) {
       this.state.stroke += -0.2;
     } else {
       return false;
     }
-  }
-
-  applyHover() {
-
   }
 
   hoverChecker () {
@@ -87,20 +82,16 @@ class Particle {
     }
   }
 
-  isHovered() {
-    return this.state.isHovered;
-  }
-
   // Draw our particle to the canvas.
   draw(ctx) {
     ctx.fillStyle = this.state.rgba;
     ctx.beginPath();
-    ctx.arc(this.state.x, this.state.y, this.state.radius, 0, TWO_PI);
+    ctx.arc(this.state.x, this.state.y, this.state.radius, 0, TWO_PI); //eslint-disable-line
     ctx.strokeStyle = `rgba(255, 255, 255, ${this.state.stroke})`;
     ctx.lineWidth = 1;
     ctx.fill();
     ctx.stroke();
-  };
+  }
 
   // Update our position.
   update() {

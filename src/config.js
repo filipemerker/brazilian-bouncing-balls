@@ -4,23 +4,23 @@ const particlesJSON = {
   local: 'assets/json/hugs.json'
 }
 const particleCount        = 10;
-const bounceCriteria       = 200;
+const bounceCriteria       = 250;
 const mapPath              = require('@/assets/svg/brasil-wat.svg');
 const widgetSize           = { width: 500, height: 500 };
-const particlesAlpha       = .8;
-const particlesLimit       = 150;
+const particlesAlpha       = .65;
+const particlesLimit       = 130;
 const particlesRadiusRange = [7, 15];
 const particlesColorRange  = [
-  {label: "Amor", color: {r:234, g: 107, b:135}},
-  {label: "Saudade", color: {r:153, g: 129, b:157}},
-  {label: "Carinho", color: {r:243, g: 218, b:141}},
-  {label: "Conforto", color: {r:188, g: 165, b:193}},
-  {label: "Alegria", color: {r:173, g: 162, b:75}},
-  {label: "Amizade", color: {r:218, g: 205, b:197}},
-  {label: "Gratidão", color: {r:199, g: 90, b:113}},
-  {label: "Inspiração", color: {r:205, g: 193, b:112}},
-  {label: "Paixão", color: {r:193, g: 164, b:73}},
-  {label: "Esperança", color: {r:147, g: 74, b:99}}
+  {label: "Amor", color: {r:84, g: 110, b:112}},
+  {label: "Saudade", color: {r:255, g: 112, b:67}},
+  {label: "Carinho", color: {r:71, g: 142, b:61}},
+  {label: "Conforto", color: {r:56, g: 121, b:57}},
+  {label: "Alegria", color: {r:47, g: 136, b:210}},
+  {label: "Amizade", color: {r:103, g: 58, b:183}},
+  {label: "Gratidão", color: {r:246, g: 183, b:75}},
+  {label: "Inspiração", color: {r:252, g: 224, b:129}},
+  {label: "Paixão", color: {r:139, g: 195, b:73}},
+  {label: "Esperança", color: {r:233, g: 65, b:85}}
 ];
 
 export {

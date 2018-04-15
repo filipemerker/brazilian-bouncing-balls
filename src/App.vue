@@ -17,8 +17,14 @@ export default {
 
 <style>
 body {
-  background: linear-gradient(to right, #35495e, #5bb883);
+  background: #35495e;
   margin: 0;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .35s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
