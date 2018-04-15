@@ -5,7 +5,7 @@ const particlesJSON = {
 }
 const particleCount        = 10;
 const bounceCriteria       = 200;
-const mapPath              = 'assets/svg/brasil-wat.svg';
+const mapPath              = require('@/assets/svg/brasil-wat.svg');
 const widgetSize           = { width: 300, height: 300 };
 const particlesAlpha       = .8;
 const particlesRadiusRange = [7, 15];

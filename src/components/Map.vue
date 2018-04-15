@@ -1,7 +1,15 @@
 <template>
   <div>
     <div class="map-container" ref="map-container"></div>
-    <bounds-generator v-on:boundsready="createMap" />
+    <bounds-generator
+      :bounceCriteria="bounceCriteria"
+      :widgetHeight="widgetHeight"
+      :widgetWidth="widgetWidth"
+      :mapPath="mapPath"
+
+      v-on:boundsready="createMap"
+      v-if="generatingBounds"
+    />
     <div id="brazil">
       <canvas ref="map" />
     </div>
@@ -12,8 +20,10 @@
 /* eslint-disable */
 import Sketch from 'sketch-js'
 import BoundsGenerator from '@/components/BoundsGenerator'
+import {mapPath, widgetSize, bounceCriteria} from '@/config'
+
 export default {
-  name: 'HelloWorld',
+  name: 'Map',
   components: {
     BoundsGenerator
   },
@@ -22,12 +32,21 @@ export default {
   },
   data() {
     return {
+      loading: true,
+      generatingBounds: true,
 
+      bounds: [],
+
+      widgetHeight: widgetSize.height,
+      widgetWidth: widgetSize.width,
+      bounceCriteria,
+      mapPath,
     }
   },
   methods: {
     createMap: function(bounds) {
-      console.log(bounds);
+      this.generatingBounds = false;
+      this.bounds = bounds;
     }
   },
   mounted() {
