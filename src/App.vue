@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <Map msg="Welcome to Your Vue.js App"/>
+    <Map />
   </div>
 </template>
 
@@ -17,6 +16,10 @@ export default {
 </script>
 
 <style>
+body {
+  background: linear-gradient(to right, #35495e, #5bb883);
+  margin: 0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,17 +1,17 @@
-import { widgetSize, particlesAlpha } from './config';
-import { getRandom } from '../../utils/formatters';
-import colisionSystem from './colisionSystem.js';
+import { particlesAlpha } from '@/config';
+import { getRandom } from '@/helpers/formatters';
+import colisionSystem from '@/helpers/colisionSystem';
 
 class Particle {
   constructor(config) {
     this.state = {
+      widgetSize: config.widgetSize,
       fake: config.fake,
       id: config.id,
       x: config.x,
       y: config.y,
       vx: config.vx,
       vy: config.vy,
-      widgetSize: config.widgetSize,
       radius: config.radius,
       bounds: config.bounds,
       mouse: config.mouse,
@@ -33,7 +33,7 @@ class Particle {
       particleCanHover: (id) => config.actions.particleCanHover(id),
       putParticleOnTop: (id) => config.actions.putParticleOnTop(id),
       getParticleIndex: (id) => config.actions.getParticleIndex(id),
-      toggleTooltip: (data)  => config.actions.toggleTooltip(data)
+      //toggleTooltip: (data)  => config.actions.toggleTooltip(data)
     };
   }
 
@@ -65,16 +65,16 @@ class Particle {
     ) {
       if(actions.particleCanHover(state.id)) {
         if(!state.isHovered) {
-          actions.toggleTooltip({
-            x: state.x + state.radius,
-            y: state.y,
-            author: state.author,
-            friends: state.friends,
-            id: state.id,
-            state: state.address.state,
-            city: state.address.city,
-            imageURL: state.imageURL
-          });
+          // actions.toggleTooltip({
+          //   x: state.x + state.radius,
+          //   y: state.y,
+          //   author: state.author,
+          //   friends: state.friends,
+          //   id: state.id,
+          //   state: state.address.state,
+          //   city: state.address.city,
+          //   imageURL: state.imageURL
+          // });
         }
         if(actions.getParticleIndex(state.id) > 0) {
           actions.putParticleOnTop(state.id);
@@ -82,9 +82,13 @@ class Particle {
         state.isHovered = true;
       }
     } else {
-      if(state.isHovered) actions.toggleTooltip();
+      // if(state.isHovered) actions.toggleTooltip();
       state.isHovered = false;
     }
+  }
+
+  isHovered() {
+    return this.state.isHovered;
   }
 
   // Draw our particle to the canvas.
@@ -116,6 +120,6 @@ class Particle {
     }
     state = colisionSystem(state);
   }
-};
+}
 
 export default Particle;
