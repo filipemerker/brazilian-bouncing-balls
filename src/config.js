@@ -8,7 +8,7 @@ const bounceCriteria       = 250;
 const mapPath              = require('@/assets/svg/brasil-wat.svg');
 const widgetSize           = { width: 500, height: 500 };
 const particlesAlpha       = .65;
-const particlesLimit       = 130;
+const particlesLimit       = 30;
 const particlesRadiusRange = [7, 15];
 const particlesColorRange  = [
   {label: "Amor", color: {r:84, g: 110, b:112}},

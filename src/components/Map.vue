@@ -1,10 +1,16 @@
 <template>
-  <div>
+  <div class="map">
     <div v-bind:class="['map-container', loading ? 'loading' : '']" ref="map">
       <transition name="fade" mode="out-in">
         <spinner v-if="loading" />
       </transition>
     </div>
+    <div class="controls-container">
+      <transition name="fade" mode="out-in">
+        <controls v-if="!loading" />
+      </transition>
+    </div>
+    
     <bounds-generator
       :bounceCriteria="bounceCriteria"
       :widgetHeight="width"
@@ -23,6 +29,7 @@ import Sketch from 'sketch-js'
 
 import BoundsGenerator from '@/components/BoundsGenerator'
 import Particle from '@/components/Particle'
+import Controls from '@/components/Controls'
 import Spinner from '@/components/Spinner'
 
 import {
@@ -42,6 +49,7 @@ export default {
   name: 'Map',
   components: {
     BoundsGenerator,
+    Controls,
     Spinner
   },
   props: {
@@ -221,13 +229,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+.map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .map-container {
   width: 500px;
   height: 500px;
-  margin: 0 auto;
   background: url('../assets/svg/brasil.svg') no-repeat center center;
   padding: 30px 10px 20px 10px;
   position: relative;
+}
+.controls-container {
+  width: 200px;
 }
 .map-container .sketch{
   opacity: 1;
