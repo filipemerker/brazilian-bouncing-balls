@@ -11,6 +11,7 @@ class Particle {
       y: config.y,
       vx: config.vx,
       vy: config.vy,
+      feeling: config.feeling,
       radius: config.radius,
       bounds: config.bounds,
       mouse: config.mouse,

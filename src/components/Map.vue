@@ -34,6 +34,7 @@ import Spinner from '@/components/Spinner'
 
 import {
   particlesRadiusRange,
+  particlesColorRange,
   particlesLimit,
   bounceCriteria,
   widgetSize,
@@ -71,20 +72,32 @@ export default {
 
       // Defaults
       particlesAmount: 0,
-      particles: [],
+      data:[],
+      particleList: [],
       bounds: [],
-      filters: {
-        creatorId: '',
-        feelingId: '',
-        stateId: '',
-        startDate: '',
-        finishDate: ''
-      },
+      filterValue: '',
       mouse: {
         in: false,
         x: 0,
         y: 0
       }
+    }
+  },
+  computed: {
+    particles () {
+      const { filterValue } = this
+      let list = this.particleList.slice()
+
+      console.log(filterValue, list);
+
+      if (filterValue) {
+        list = list.filter(({ state: { feeling } }) => {
+          console.log(feeling, filterValue);
+          return feeling === filterValue
+        })
+      }
+      console.log(this.addFakeParticles(list));
+      return this.addFakeParticles(list);
     }
   },
   methods: {
@@ -104,14 +117,21 @@ export default {
     },
 
     filter(feeling) {
-      console.log('Updated', feeling)
+      const filter = particlesColorRange.findIndex(({ label }) => label.toLowerCase() === feeling)
+      
+      if (filter < 0) {
+        this.filterValue = ''
+      } else {
+        this.filterValue = filter
+      }
     },
 
     createParticlesFromHugs(hugs) {
-      this.particles = hugs.map(hug => this.createParticle({
+      this.particleList = hugs.map(hug => this.createParticle({
         fake: false,
         id: hug.id,
         radius: likesToRadius(hug.likes, this.particlesRadiusRange),
+        feeling: hug.feeling,
         rgb: feelingToRGB(hug.feeling || 1),
         message: hug.comment,
         address: {
@@ -122,7 +142,6 @@ export default {
       }));
 
       this.particlesAmount = hugs.length;
-      this.createFakeParticles();
     },
 
     createParticle(config) {
@@ -145,38 +164,33 @@ export default {
       }));
     },
 
-    createFakeParticles() {
-      let remainningParticles = this.particlesLimit - this.particlesAmount;
+    addFakeParticles(list) {
+      let remainningParticles = this.particlesLimit - (list.length )
       if (remainningParticles > 0) {
         for (var i = 0; i < remainningParticles; i++) {
-          this.particles.push(this.createParticle({
+          list.push(this.createParticle({
             id: false,
             fake: true,
             radius: likesToRadius(getRandom(0, 40), this.particlesRadiusRange),
             rgb: {r: 235, g:214, b:180}
-          }));
+          }))
         }
       }
-      this.particlesAmount = this.particlesLimit;
+
+      return list
     },
 
     particleCanHover(id) {
       let canHover = false;
-      let hoveredParticle = this.particles.filter(particle => {
-        return particle.state.isHovered
-      });
-      canHover = (hoveredParticle.length === 0) ? true : false;
-      canHover = (canHover || hoveredParticle && hoveredParticle.id === id) ? true : false;
+      let hoveredParticle = this.particles.filter(({ state: { isHovered } }) => isHovered)
+      canHover = (hoveredParticle.length === 0) ? true : false
+      canHover = (canHover || hoveredParticle && hoveredParticle.id === id) ? true : false
 
-      return canHover;
+      return canHover
     },
 
     getParticleIndex(id) {
-      let index;
-      this.particles.map((particle, i) => {
-        if(id === particle.state.id) index = i;
-      })
-      return index;
+      return this.particles.findIndex(({ state }) => (state.id === id))
     },
 
     putParticleOnTop(id) {
