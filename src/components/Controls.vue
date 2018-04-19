@@ -17,64 +17,52 @@
 import vueSlider from 'vue-slider-component'
 import { particlesColorRange } from '@/config'
 
+const defaultLabel = 'TODOS'
+const labels = particlesColorRange.map(item => item.label.toUpperCase())
+labels.push(defaultLabel)
+
 export default {
   components: {
     vueSlider
   },
   data () {
     return {
-      value: 'TODOS',
+      value: defaultLabel,
       options:{
         width: 2,
         height: 500,
-        data: [
-          "AMOR",
-          "SAUDADE",
-          "CARINHO",
-          "CONFORTO",
-          "ALEGRIA",
-          "AMIZADE",
-          "GRATIDÃO",
-          "INSPIRAÇÃO",
-          "PAIXÃO",
-          "ESPERANÇA",
-          "TODOS",
-        ],
-        direction: "vertical",
+        data: labels,
+        direction: 'vertical',
         lazy: true,
         show: true,
-        tooltip: "false",
+        tooltip: 'false',
         piecewise: true,
         piecewiseLabel: true,
         realTime: true,
         piecewiseStyle: {
-          "backgroundColor": "#ccc",
-          "visibility": "visible",
-          "width": "12px",
-          "height": "12px",
-          "margin-left": '-10px',
+          backgroundColor: '#ccc',
+          visibility: 'visible',
+          width: '12px',
+          height: '12px',
+          marginLeft: '-10px',
         },
         labelStyle: {
-          "margin-left": '0px',
-          'color': '#ccc',
-          'font-weight': '900',
-          'font-size': '10px'
+          marginLeft: '0px',
+          color: '#ccc',
+          fontWeight: '900',
+          fontSize: '10px'
         },
         style: {
-          "marginTop": "30px"
+          marginTop: '30px'
         },
         bgStyle: {
-          "backgroundColor": "#ccc",
+          backgroundColor: '#ccc',
         },
         sliderStyle: {
-          "backgroundColor": "#689349"
-        },
-        tooltipStyle: {
-          "backgroundColor": "#689349",
-          "borderColor": "#689349"
+          backgroundColor: '#ccc'
         },
         processStyle: {
-          "backgroundColor": "#ccc"
+          backgroundColor: '#ccc'
         },
       }
     }

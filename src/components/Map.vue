@@ -104,7 +104,7 @@ export default {
     },
 
     filter(feeling) {
-      console.log('Updated', feeling);
+      console.log('Updated', feeling)
     },
 
     createParticlesFromHugs(hugs) {

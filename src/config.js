@@ -11,7 +11,7 @@ const particlesAlpha       = .65;
 const particlesLimit       = 30;
 const particlesRadiusRange = [7, 15];
 const particlesColorRange  = [
-  {label: "Amor", color: {r:84, g: 110, b:112}},
+  {label: "Amor", color: {r:233, g: 65, b:85}},
   {label: "Saudade", color: {r:255, g: 112, b:67}},
   {label: "Carinho", color: {r:71, g: 142, b:61}},
   {label: "Conforto", color: {r:56, g: 121, b:57}},
@@ -20,7 +20,7 @@ const particlesColorRange  = [
   {label: "Gratidão", color: {r:246, g: 183, b:75}},
   {label: "Inspiração", color: {r:252, g: 224, b:129}},
   {label: "Paixão", color: {r:139, g: 195, b:73}},
-  {label: "Esperança", color: {r:233, g: 65, b:85}}
+  {label: "Esperança", color: {r:84, g: 110, b:112}}
 ];
 
 export {
