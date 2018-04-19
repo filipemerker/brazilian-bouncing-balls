@@ -7,7 +7,7 @@
     </div>
     <div class="controls-container">
       <transition name="fade" mode="out-in">
-        <controls v-if="!loading" />
+        <controls v-on:update="filter" v-if="!loading" />
       </transition>
     </div>
     
@@ -101,6 +101,10 @@ export default {
       const hugs = require('@/assets/json/hugs.json');
 
       this.createParticlesFromHugs(hugs.slice(0, this.particlesLimit));
+    },
+
+    filter(feeling) {
+      console.log('Updated', feeling);
     },
 
     createParticlesFromHugs(hugs) {

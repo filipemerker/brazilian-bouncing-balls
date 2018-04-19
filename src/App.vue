@@ -22,9 +22,12 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800');
+
 body {
   background: #35495e;
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity .35s;
@@ -33,7 +36,6 @@ body {
   opacity: 0;
 }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
