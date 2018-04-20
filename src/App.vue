@@ -1,28 +1,19 @@
 <template>
   <div id="app">
-    <Map />
+    <transition name="fade" mode="out-in">
+      <router-view class="view"></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
-import Map from './components/Map.vue'
-
 export default {
-  name: 'app',
-  metaInfo: {
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
-    ]
-  },
-  components: {
-    Map
-  }
+  name: 'app'
 }
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,800');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,800');
 
 body {
   background: #35495e;
@@ -47,6 +38,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
 }
 </style>

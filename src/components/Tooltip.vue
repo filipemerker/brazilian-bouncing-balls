@@ -1,8 +1,5 @@
 <template>
-  <div v-if="visible" class="tooltip-wrapper" v-bind:style="styleObject">
-    <div class="tooltip">
-      
-    </div>
+  <div v-if="visible" class="tooltip-wrapper" v-bind:style="styleObject" v-on:click="open">
   </div>
 </template>
 
@@ -28,12 +25,18 @@ export default {
   data() {
     return {
       visible: false,
+      data: {},
       styleObject: {
         left: '0px',
         top: '0px',
         width: '0px',
         height: '0px'
       }
+    }
+  },
+  methods: {
+    open() {
+      this.$router.push({ path: 'detail', params: this.data}) // eslint-disable-line
     }
   }
 }

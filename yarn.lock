@@ -6728,6 +6728,10 @@ vue-meta@^1.5.0:
     lodash.isplainobject "^4.0.6"
     object-assign "^4.1.1"
 
+vue-router@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.1.tgz#d9b05ad9c7420ba0f626d6500d693e60092cc1e9"
+
 vue-slider-component@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/vue-slider-component/-/vue-slider-component-2.6.2.tgz#48c43d720a5fed47ecd3be8945df2cf8203a9e0e"
@@ -6753,6 +6757,10 @@ vue-template-es2015-compiler@^1.6.0:
 vue@^2.5.13:
   version "2.5.16"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
+
+vuex-router-sync@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/vuex-router-sync/-/vuex-router-sync-5.0.0.tgz#1a225c17a1dd9e2f74af0a1b2c62072e9492b305"
 
 watchpack@^1.4.0:
   version "1.5.0"
