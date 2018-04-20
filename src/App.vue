@@ -29,8 +29,15 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
 }
+.fade-fast-enter-active, .fade-fast-leave-active {
+  transition: all .2s;
+}
 .fade-enter-active, .fade-leave-active {
   transition: opacity .35s;
+}
+.fade-fast-enter, .fade-fast-leave-to {
+  margin-top: -5px;
+  opacity: 0;
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;

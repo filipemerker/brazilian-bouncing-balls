@@ -45,12 +45,14 @@ export default {
           width: '12px',
           height: '12px',
           marginLeft: '-10px',
+          cursor: 'pointer',
         },
         labelStyle: {
           marginLeft: '0px',
           color: '#ccc',
           fontWeight: '900',
-          fontSize: '10px'
+          fontSize: '10px',
+          cursor: 'pointer',
         },
         style: {
           marginTop: '30px'

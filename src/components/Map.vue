@@ -2,8 +2,9 @@
   <div class="map">
     <div v-bind:class="['map-container', loading ? 'loading' : '']" ref="map">
       <transition name="fade" mode="out-in">
-        <spinner v-if="loading" />
+        <spinner key="spinner" v-if="loading" />
       </transition>
+      <tooltip key="tooltip" :config="tooltip" />
     </div>
     <div class="controls-container">
       <transition name="fade" mode="out-in">
@@ -31,6 +32,7 @@ import BoundsGenerator from '@/components/BoundsGenerator'
 import Particle from '@/components/Particle'
 import Controls from '@/components/Controls'
 import Spinner from '@/components/Spinner'
+import Tooltip from '@/components/Tooltip'
 
 import {
   particlesRadiusRange,
@@ -51,7 +53,8 @@ export default {
   components: {
     BoundsGenerator,
     Controls,
-    Spinner
+    Spinner,
+    Tooltip,
   },
   props: {
     msg: String
@@ -72,10 +75,11 @@ export default {
 
       // Defaults
       particlesAmount: 0,
-      data:[],
-      particleList: [],
-      bounds: [],
       filterValue: '',
+      particleList: [],
+      tooltip: {},
+      bounds: [],
+      data:[],
       mouse: {
         in: false,
         x: 0,
@@ -147,9 +151,14 @@ export default {
         actions: {
           particleCanHover: (id) => this.particleCanHover(id),
           putParticleOnTop: (id) => this.putParticleOnTop(id),
-          getParticleIndex: (id) => this.getParticleIndex(id)
+          getParticleIndex: (id) => this.getParticleIndex(id),
+          toggleTooltip: (data)  => this.toggleTooltip(data),
         }
       }));
+    },
+
+    toggleTooltip(data) {
+      this.tooltip = data
     },
 
     addFakeParticles(list) {

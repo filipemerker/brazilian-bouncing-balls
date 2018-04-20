@@ -44,16 +44,15 @@ class Particle {
     ) {
       if(actions.particleCanHover(state.id)) {
         if(!state.isHovered) {
-          // actions.toggleTooltip({
-          //   x: state.x + state.radius,
-          //   y: state.y,
-          //   author: state.author,
-          //   friends: state.friends,
-          //   id: state.id,
-          //   state: state.address.state,
-          //   city: state.address.city,
-          //   imageURL: state.imageURL
-          // });
+          actions.toggleTooltip({
+            x: state.x + (state.radius / 2),
+            y: state.y + (state.radius / 2),
+            radius: state.radius * 2,
+            author: state.author,
+            id: state.id,
+            state: state.address.state,
+            city: state.address.city,
+          })
         }
         if(actions.getParticleIndex(state.id) > 0) {
           actions.putParticleOnTop(state.id)
@@ -61,7 +60,9 @@ class Particle {
         state.isHovered = true
       }
     } else {
-      // if(state.isHovered) actions.toggleTooltip();
+      if(state.isHovered) {
+        actions.toggleTooltip()
+      }
       state.isHovered = false
     }
   }
