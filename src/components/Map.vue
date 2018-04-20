@@ -123,17 +123,10 @@ export default {
 
     createParticlesFromHugs(hugs) {
       this.particleList = hugs.map(hug => this.createParticle({
-        fake: false,
-        id: hug.id,
+        ...hug,
         radius: likesToRadius(hug.likes, this.particlesRadiusRange),
-        feeling: hug.feeling,
         rgb: feelingToRGB(hug.feeling),
-        message: hug.comment,
-        address: {
-          city: hug.address.city,
-          state: hug.address.state
-        },
-        author: hug.name
+        fake: false,
       }));
 
       this.particlesAmount = hugs.length;
@@ -166,6 +159,7 @@ export default {
           list.push(this.createParticle({
             id: false,
             fake: true,
+            alpha: .15,
             radius: likesToRadius(getRandom(0, 40), this.particlesRadiusRange),
             rgb: {r: 235, g:214, b:180}
           }))
