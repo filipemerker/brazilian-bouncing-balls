@@ -7,7 +7,7 @@
       </picture>
       <div class="data">
         <div class="paragraph">
-          <h2 class="animated">Redentor vive</h2>
+          <h2 class="animated">Nordic Fjords</h2>
           <p class="animated">Lorem ipsum  dolor site amet consectetur Lorem ipsum  doetur Lorem ipsum  dolor site amet consectetur Lorem ipsum  dolor site amet consectetur Lorem ipsum  dolor site amet consectetur Lorem ipsum  dolor site amet consectetur </p>
         </div>
       </div>
