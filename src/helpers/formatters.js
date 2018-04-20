@@ -1,6 +1,6 @@
 import { particlesColorRange } from '@/config';
 
-const feelingToRGB = feeling => particlesColorRange[feeling - 1].color;
+const feelingToRGB = feeling => particlesColorRange[feeling].color;
 
 const likesToRadius = (likes, particlesRadiusRange) => {
   let diameter = 0;

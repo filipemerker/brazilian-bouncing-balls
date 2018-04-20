@@ -18,7 +18,7 @@ import vueSlider from 'vue-slider-component'
 import { particlesColorRange } from '@/config'
 
 const defaultLabel = 'TODOS'
-const labels = particlesColorRange.map(item => item.label.toUpperCase())
+const labels = particlesColorRange.map(({ label }) => label.toUpperCase())
 labels.push(defaultLabel)
 
 export default {
@@ -75,13 +75,13 @@ export default {
       this.changeColor(feeling)
     },
     changeColor: function(feeling) {
-      const particleConfig = particlesColorRange.find(item => feeling === item.label.toLowerCase())
+      const particleConfig = particlesColorRange.find(({ label }) => label.toLowerCase() === feeling)
       let backgroundColor = `rgb(204, 204, 204)`
 
       if (particleConfig) {
         const { color: c } = particleConfig
 
-        backgroundColor = `rgb(${c.r}, ${c.g}, ${c.b}`
+        backgroundColor = `rgb(${c.r}, ${c.g}, ${c.b})`
       }
 
       this.options.sliderStyle = { backgroundColor }

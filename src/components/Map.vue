@@ -88,15 +88,10 @@ export default {
       const { filterValue } = this
       let list = this.particleList.slice()
 
-      console.log(filterValue, list);
-
-      if (filterValue) {
-        list = list.filter(({ state: { feeling } }) => {
-          console.log(feeling, filterValue);
-          return feeling === filterValue
-        })
+      if (filterValue !== '') {
+        list = list.filter(({ state: { feeling } }) => feeling === filterValue)
       }
-      console.log(this.addFakeParticles(list));
+
       return this.addFakeParticles(list);
     }
   },
@@ -132,7 +127,7 @@ export default {
         id: hug.id,
         radius: likesToRadius(hug.likes, this.particlesRadiusRange),
         feeling: hug.feeling,
-        rgb: feelingToRGB(hug.feeling || 1),
+        rgb: feelingToRGB(hug.feeling),
         message: hug.comment,
         address: {
           city: hug.address.city,

@@ -85,12 +85,18 @@ class Particle {
 
   // Draw our particle to the canvas.
   draw(ctx) {
-    ctx.fillStyle = this.state.rgba;
+    const { state } = this;
+    ctx.fillStyle = state.rgba;
     ctx.beginPath();
-    ctx.arc(this.state.x, this.state.y, this.state.radius, 0, TWO_PI); //eslint-disable-line
-    ctx.strokeStyle = `rgba(255, 255, 255, ${this.state.stroke})`;
+    ctx.arc(state.x, state.y, state.radius, 0, TWO_PI); //eslint-disable-line
+    ctx.strokeStyle = `rgba(255, 255, 255, ${state.stroke})`;
     ctx.lineWidth = 1;
     ctx.fill();
+    // if (!state.fake) {
+    //   const label [state.feeling].label;
+    //   const width = ctx.measureText(label).width;
+    //   ctx.fillText(label, state.x - (width / 2), state.y - state.radius)
+    // }
     ctx.stroke();
   }
 
