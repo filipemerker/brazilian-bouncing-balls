@@ -7,7 +7,7 @@ import Map from '@/views/Map'
 import Detail from '@/views/Detail'
 
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
     { path: '/detail', component: Detail },
