@@ -77,6 +77,7 @@ export default {
       particlesAmount: 0,
       filterValue: '',
       particleList: [],
+      sketch: null,
       tooltip: {},
       bounds: [],
       data:[],
@@ -197,6 +198,9 @@ export default {
       this.particles.splice(0, 0, this.particles.splice(oldIndex, 1)[0]);
     }
   },
+  beforeDestroy() {
+    this.sketch.destroy();
+  },
   mounted() {
     const update = function() {
       let i = this.particlesAmount;
@@ -207,7 +211,7 @@ export default {
     const draw = function() {
       let i = this.particlesAmount;
       while (i--) {
-        this.particles[i].draw(sketch);
+        this.particles[i].draw(this.sketch);
       }
     }
     const mouseover = function() {
@@ -216,19 +220,19 @@ export default {
     const mouseout = function() {
 
       this.mouse = Object.assign(this.mouse, {
-        x: sketch.mouse.x,
-        y: sketch.mouse.y,
+        x: this.sketch.mouse.x,
+        y: this.sketch.mouse.y,
         in: false
       });
     }
     const mousemove = function() {
       this.mouse = Object.assign(this.mouse, {
-        x: sketch.mouse.x,
-        y: sketch.mouse.y
+        x: this.sketch.mouse.x,
+        y: this.sketch.mouse.y
       });
     }
 
-    const sketch = Sketch.create({
+    this.sketch = Sketch.create({
       container: this.$refs.map,
       fullscreen: false,
       width: this.width,
