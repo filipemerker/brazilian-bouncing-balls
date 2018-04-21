@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     open() {
-      this.$router.push({ path: 'detail', params: this.data}) // eslint-disable-line
+      this.$router.push({ name: 'detail', params: this.config}) // eslint-disable-line
     }
   }
 }

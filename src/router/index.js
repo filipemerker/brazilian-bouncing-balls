@@ -10,7 +10,7 @@ export default new Router({
   mode: 'hash',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
-    { path: '/detail', component: Detail },
-    { path: '/', component: Map }
+    { name: 'detail', path: '/detail', component: Detail },
+    { name: 'home', path: '/', component: Map }
   ]
 })
