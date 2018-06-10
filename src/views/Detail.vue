@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$route.params.id" class="detail">
+  <div v-if="$route.params.id && loaded" class="detail">
     <div class="detail-container">
       <h1 class="title-cover">{{ address }}</h1>
       <div :style="{ 'background-image': `url(${hug.thumb})` }" class="cover animation">
@@ -28,6 +28,7 @@ export default {
   name: 'detail',
   data() {
     return {
+      loaded: false,
       hug: {
         address: {},
         thumb: ''
@@ -41,6 +42,11 @@ export default {
   },
   mounted() {
     this.hug = this.$route.params;
+    this.loaded = false
+
+    const thumb = new Image()
+    thumb.onload = () => (this.loaded = true)
+    thumb.src = this.hug.thumb
 
     if (!this.$route.params.id) {
       this.$router.push({ name: 'home' })
