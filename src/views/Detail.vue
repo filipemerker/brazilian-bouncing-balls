@@ -3,7 +3,7 @@
     <div class="detail-container">
       <h1 class="title-cover">{{ address }}</h1>
       <div :style="{ 'background-image': `url(${hug.thumb})` }" class="cover animation">
-        <img v-if="hug.image" v-lazy="hug.image">
+        <img class="image" v-if="hug.image" v-lazy="hug.image">
       </div>
       <div class="data">
         <div class="paragraph">
@@ -64,6 +64,17 @@ export default {
   justify-content: center;
   height: 100%;
   overflow: hidden;
+}
+.image {
+  opacity: 0;
+}
+.image[lazy=loaded] {
+  animation-name: fadeIn;
+  animation-duration: .3s; 
+  animation-timing-function: cubic-bezier(0.7, 0.21, 0.61, 0.69); 
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 .detail-container {
   width: 850px;
