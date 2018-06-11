@@ -1,6 +1,7 @@
 <template>
-  <div v-if="$route.params.id && loaded" class="detail">
-    <div class="detail-container">
+  <div class="detail">
+    <spinner key="spinner" />
+    <div v-if="$route.params.id && loaded" class="detail-container">
       <h1 class="title-cover">{{ address }}</h1>
       <div :style="{ 'background-image': `url(${hug.thumb})` }" class="cover animation">
         <img class="image" v-if="hug.image" v-lazy="hug.image">
@@ -24,8 +25,10 @@
 </template>
 
 <script>
+import Spinner from '@/components/Spinner'
 export default {
   name: 'detail',
+  components: { Spinner },
   data() {
     return {
       loaded: false,
@@ -85,6 +88,13 @@ export default {
   align-items: flex-end;
   justify-content: flex-end;
   box-shadow: 0 19px 58px rgba(0,0,0,0.30), 0 15px 22px rgba(0,0,0,0.22);
+
+  animation-name: fadeIn;
+  animation-duration: .3s; 
+  animation-timing-function: cubic-bezier(0.7, 0.21, 0.61, 0.69); 
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 .data {
   display: flex;
