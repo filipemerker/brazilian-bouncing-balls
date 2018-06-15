@@ -1,4 +1,4 @@
-# brazillian-bouncing-balls
+# brazilian-bouncing-balls
 🇧🇷 Canvas "bouncing balls" animation experiment within an arbitrary shape.
 
 This is a replica of a project made in 2016 for a international brand.
