@@ -6,4 +6,4 @@ The briefing was to create an interactive brazilian map formed by bouncing balls
 
 While the original project used vanilla JS, this one was made with VueJS and uses the `canvas` API to build and animate the map.
 
-You can access the project [clicking here](https://filipemerker.github.io/brazillian-bouncing-balls/) and interact with the map by **filtering on the sidebar** or **clicking on the balls**.
+You can access the project [clicking here](https://filipemerker.github.io/brazilian-bouncing-balls/) and interact with the map by **filtering on the sidebar** or **clicking on the balls**.
