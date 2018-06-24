@@ -1,4 +1,4 @@
 // vue.config.js
 module.exports = {
-    baseUrl: '/brazillian-bouncing-balls/'
+    baseUrl: '/brazilian-bouncing-balls/'
 }
