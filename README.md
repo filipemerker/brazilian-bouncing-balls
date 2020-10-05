@@ -1,7 +1,5 @@
 # What is this project about?
-🇧🇷 Canvas "bouncing balls" animation experiment within an arbitrary shape.
-
-This is a replica of a project developed by me in 2016 for the international brand LOccitane.
+🇧🇷 This is a replica of a project developed by me in 2016 for the international brand LOccitane.
 My task was to create an interactive brazilian map formed by bouncing balls.
 
 The project was created with VueJS and `Canvas` API to build and animate the map.
